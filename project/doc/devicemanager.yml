@@ -1,0 +1,55 @@
+---
+openapi: 3.0.3
+servers:
+- url: /api
+tags:
+  - name: "Device"
+    description: "Create device API"
+components:
+  parameters:
+
+  schemas:
+    Device:
+      properties:
+        mac_address:
+          description: Mac Address
+          type: string
+        ip_address:
+          description: IP address
+          type: string
+        hostname:
+          description: hostname
+          type: string
+      required:
+      - mac_address
+      - ip_address
+      - hostname
+      type: object
+info:
+  title: F-secure Device Manager
+  version: 1.0.0
+  description: |
+    Test project for developer.
+  termsOfService: http://totally.not.placehold.er/
+  contact:
+    url: http://totally.not.placehold.er/
+    email:
+    name:
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /createDevice/:
+    post:
+      tags:
+        - Device
+      description: Save device
+      responses:
+        '200':
+          description: Save device
+          content:
+            application/json:
+              example:
+              - mac_address: AA:BB:CC:DD:EE:FF
+                ip_address: 127.0.0.1
+                hostname: Localhost
